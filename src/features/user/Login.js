@@ -71,7 +71,7 @@ function Login() {
           const { data: { free: balance } } = await api?.query.system.account(address);
           if(parseFloat(balance) < 1000 ){
             window.alert(`Balance of your address:   ${balance} \n You must have a token holding of 1000 DOT or more to login.`);
-            return;
+            // return;
           }
           setBalanceAmount(parseFloat(balance));
     
