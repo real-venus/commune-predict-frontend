@@ -11,16 +11,16 @@ function Header(){
     // const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("theme"))
     const [currentTheme, setCurrentTheme] = useState("dark")
 
-    useEffect(() => {
-        themeChange(true)
-        if(currentTheme === null){
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ) {
-                setCurrentTheme("dark")
-            }else{
-                setCurrentTheme("dark")
-            }
-        }
-      }, [])
+    // useEffect(() => {
+    //     themeChange(true)
+    //     if(currentTheme === null){
+    //         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+    //             setCurrentTheme("dark")
+    //         }else{
+    //             setCurrentTheme("dark")
+    //         }
+    //     }
+    //   }, [])
 
 
     function logoutUser(){
