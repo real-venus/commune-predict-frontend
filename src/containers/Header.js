@@ -11,7 +11,7 @@ function Header(){
     const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("theme"))
 
     useEffect(() => {
-        themeChange(false)
+        themeChange(true)
         if(currentTheme === null){
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ) {
                 setCurrentTheme("dark")
