@@ -16,7 +16,7 @@ function Header(){
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ) {
                 setCurrentTheme("dark")
             }else{
-                setCurrentTheme("light")
+                setCurrentTheme("dark")
             }
         }
       }, [])
