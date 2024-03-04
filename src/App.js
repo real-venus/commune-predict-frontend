@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     // 👆 daisy UI themes initialization
-    themeChange(false)
+    themeChange(true)
   }, [])
 
 
