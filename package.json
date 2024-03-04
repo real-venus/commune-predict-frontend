@@ -1,7 +1,7 @@
 {
-  "name": "admin-dashboard-template-dashwind",
+  "name": "comscanner",
   "version": "1.0.0",
-  "description": "Admin Dashboard template built with create-react-app, tailwind css and daisy UI. Template uses rich tailwind css utility classes and have components of daisy UI, also have redux toolkit implemented for store management.",
+  "description": "comscanner",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
