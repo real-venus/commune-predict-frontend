@@ -8,7 +8,8 @@ function Header(){
 
     const dispatch = useDispatch()
     const {noOfNotifications, pageTitle} = useSelector(state => state.header)
-    const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("theme"))
+    // const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("theme"))
+    const [currentTheme, setCurrentTheme] = useState("dark")
 
     useEffect(() => {
         themeChange(true)
