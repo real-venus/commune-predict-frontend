@@ -4,7 +4,8 @@ import LongSignal from './components/LongSignal';
 import ShortSignal from './components/ShortSignal';
 import { useState } from 'react'
 import io from'socket.io-client';
-var socket = io.connect(`${window.location.hostname}:4000`);
+// var socket = io.connect(`${"window.location.hostname"}:4000`);
+var socket = io.connect("https://commune-predict-backend-1.onrender.com/");
 
 function Dashboard(){
     const [hot_data, setData] = useState([]);
