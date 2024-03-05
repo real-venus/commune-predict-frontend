@@ -1,9 +1,11 @@
 import TitleCard from "../../../components/Cards/TitleCard"
 import React from 'react';
 import { binanceCryptoIcons} from 'binance-icons';
+import { LoadingOutlined } from '@ant-design/icons'
 
 function LongSignal(long){
     const data = long.long;
+    console.log(data.status);
     var cnt = 0;
     var hasBtc = binanceCryptoIcons.has('');
     var btcIcon = binanceCryptoIcons.get('');
@@ -29,7 +31,7 @@ function LongSignal(long){
                             Object.keys(data).length ? Object.keys(data).map((keyName) => {
                             cnt++;
                             const cryptoItem = data[keyName];
-                            var unKnown = keyName.slice(0, -4).toLowerCase();
+                            var unKnown = Object.keys(data)[0].slice(0,-4);
                             hasBtc = binanceCryptoIcons.has(unKnown);
                             btcIcon = binanceCryptoIcons.get(unKnown);
                             if( cnt <= 5 )
@@ -42,13 +44,13 @@ function LongSignal(long){
                                                 <span dangerouslySetInnerHTML={{__html: btcIcon.replace('"32"', '"24"')}} />
                                                 :
                                                 <span dangerouslySetInnerHTML={{__html: default_btcIcon.replace('"32"', '"24"')}} />
-                                            }{keyName.symbol.slice(0, -4)}/{keyName.symbol.slice(-4, )}
+                                            }{Object.keys(data)[cnt-1].slice(0,-4)}/{Object.keys(data)[cnt-1].slice(-4, )}
                                         </th>
                                         <td className="text-slate-300">{Number(cryptoItem.closePrice).toFixed(4)}</td>
                                         <td className="text-slate-300">{Number(cryptoItem.change).toFixed(4)} %</td>
                                         <td className="text-slate-300">{Number(cryptoItem.high).toFixed(4)}</td>
                                         <td className="text-slate-300">{Number(cryptoItem.low).toFixed(4)}</td>
-                                        <td className="font-semibold text-emerald-500 badge badge-success mb-[13px]">long</td>
+                                        <td className="font-semibold text-white badge badge-success mb-[13px]">long</td>
                                     </tr>
                                 )
                             })
@@ -61,7 +63,13 @@ function LongSignal(long){
                 </table>
             </div>
             {
-                !Object.keys(data).length && <p className="mt-[100px] text-center text-2xl font-bold m-auto">No Matching Data  😭</p>
+                data.status == "ok" && !Object.keys(data).length  && 
+                <p className="mt-[100px] text-center text-2xl font-bold m-auto">No Matching Data  😭<br />There is no current data showing a continuous 1% increase in token price.</p>
+                
+            }
+            {
+                data.status != "ok" && !Object.keys(data).length  &&
+                <p className="mt-[100px] text-center text-2xl font-bold m-auto">Fetching data ...<br /><LoadingOutlined style={{ fontSize: 24 }} spin /></p>
             }
         </TitleCard>
     )

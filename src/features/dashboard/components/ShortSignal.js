@@ -1,6 +1,7 @@
 import TitleCard from "../../../components/Cards/TitleCard"
 import React from 'react';
 import { binanceCryptoIcons} from 'binance-icons';
+import { LoadingOutlined } from '@ant-design/icons'
 
 function ShortSignal(short){
     const data = short.short;
@@ -29,7 +30,7 @@ function ShortSignal(short){
                             Object.keys(data).length ? Object.keys(data).map((keyName) => {
                             cnt++;
                             const cryptoItem = data[keyName];
-                            var unKnown = keyName.slice(0, -4).toLowerCase();
+                            var unKnown = Object.keys(data)[0].slice(0,-4);
                             hasBtc = binanceCryptoIcons.has(unKnown);
                             btcIcon = binanceCryptoIcons.get(unKnown);
                             if( cnt <= 5 )
@@ -42,13 +43,13 @@ function ShortSignal(short){
                                                 <span dangerouslySetInnerHTML={{__html: btcIcon.replace('"32"', '"24"')}} />
                                                 :
                                                 <span dangerouslySetInnerHTML={{__html: default_btcIcon.replace('"32"', '"24"')}} />
-                                            }{keyName.symbol.slice(0, -4)}/{keyName.symbol.slice(-4, )}
+                                            }{Object.keys(data)[cnt-1].slice(0,-4)}/{Object.keys(data)[cnt-1].slice(-4, )}
                                         </th>
                                         <td className="text-slate-300">{Number(cryptoItem.closePrice).toFixed(4)}</td>
                                         <td className="text-slate-300">{Number(cryptoItem.change).toFixed(4)} %</td>
                                         <td className="text-slate-300">{Number(cryptoItem.high).toFixed(4)}</td>
                                         <td className="text-slate-300">{Number(cryptoItem.low).toFixed(4)}</td>
-                                        <td className="font-semibold text-red-500 badge badge-primary mb-[13px]">short</td>
+                                        <td className="font-semibold text-white badge badge-danger mb-[13px]">short</td>
                                     </tr>
                                 )
                             })
@@ -59,7 +60,11 @@ function ShortSignal(short){
                 </table>
             </div>
             {
-                !Object.keys(data).length && <p className="mt-[100px] text-center text-2xl font-bold m-auto">No Matching Data  😭</p>
+                data.status == "ok" && !Object.keys(data).length && <p className="mt-[100px] text-center text-2xl font-bold m-auto">No Matching Data  😭<br />There are currently no Short Signals showing a 2% difference in token price over 3 minutes.</p>
+            }
+            {
+                data.status != "ok" && !Object.keys(data).length &&
+                <p className="mt-[100px] text-center text-2xl font-bold m-auto">Fetching data ...<br /><LoadingOutlined style={{ fontSize: 24 }} spin /></p>
             }
         </TitleCard>
     )

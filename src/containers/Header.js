@@ -43,7 +43,7 @@ function Header(){
 
                 
 
-            <div className="flex-none ">
+            <div className="flex flex-row justify-between">
 
                 {/* Multiple theme selection, uncomment this if you want to enable multiple themes selection, 
                 also includes corporate and retro themes in tailwind.config file */}
@@ -56,8 +56,13 @@ function Header(){
             </label> */}
 
                 <div>
+                    <a href="https://comchat.io" target="_blank">
+                        <p className="font-bold hover:text-slate-500">Comchat</p>
+                    </a>
+                </div>
+                <div>
                     <a href="https://comswap.io" target="_blank">
-                        <p className="font-bold hover:text-slate-500">Comswap</p>
+                        <p className="font-bold hover:text-slate-500 ml-4">Comswap</p>
                     </a>
                 </div>
                 {/* Profile icon, opening menu on click */}

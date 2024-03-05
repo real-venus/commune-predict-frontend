@@ -1,6 +1,7 @@
 import TitleCard from "../../../components/Cards/TitleCard"
 import React from 'react';
 import { binanceCryptoIcons} from 'binance-icons';
+import { LoadingOutlined } from '@ant-design/icons'
 
 function HotSignal(hot){
     const data = hot.hot;
@@ -53,7 +54,11 @@ function HotSignal(hot){
                 </table>
             </div>
             {
-                !data_update.length && <p className="mt-[100px] text-center text-2xl font-bold m-auto">No Matching Data  😭</p>
+                data.status == "ok" && !data_update.length && <p className="mt-[100px] text-center text-2xl font-bold m-auto">No Matching Data  😭</p>
+            }
+            {
+                data.status != "ok" && !data_update.length && 
+                <p className="mt-[100px] text-center text-2xl font-bold m-auto">Fetching data ...<br /><LoadingOutlined style={{ fontSize: 24 }} spin /></p>
             }
         </TitleCard>
     )

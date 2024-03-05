@@ -11,7 +11,7 @@ function LandingIntro(){
 
               <h1 className='text-3xl text-center font-bold text-white'>Welcome to Comscanner</h1>
 
-                {/* <div className="text-center mt-12"><img src="./commune.gif" alt="commune" className="w-48 inline-block"></img></div> */}
+                <div className="text-center mt-12"><img src="./commune.gif" alt="commune" className="w-48 inline-block"></img></div>
               
               {/* Importing pointers component */}
               <TemplatePointers />

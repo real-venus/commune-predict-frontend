@@ -24,8 +24,9 @@ function LeftSidebar(){
 
                 <li className="mb-2 font-semibold text-xl">
                     
-                    {/* <Link to={'/app/welcome'}><img className="mask mask-squircle w-50" src="/CubesShufflingGIF.gif" alt="Commune Logo"/><p className='text-[36px]'>Comscanner</p></Link> </li> */}
-                    <Link to={'/app/welcome'}><p className='text-[36px]'>Comscanner</p></Link> </li>
+                    <Link to={'/app/welcome'}><img className="mask mask-squircle w-50" src="/CubesShufflingGIF.gif" alt="Commune Logo"/><p className='text-[36px]'>Comscanner</p></Link> 
+                    </li>
+                    
                 {
                     routes.map((route, k) => {
                         return(
