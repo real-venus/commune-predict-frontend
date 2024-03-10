@@ -4,7 +4,7 @@ import { setPageTitle } from '../../features/common/headerSlice'
 import {Link} from 'react-router-dom'
 import IMG from './earth.gif'
 import { CSSTransition } from 'react-transition-group';
-
+import Welcome from "../../features/welcome";
 
 function InternalPage(){
 
@@ -19,7 +19,7 @@ function InternalPage(){
 
     return(
       <div className="">
-        
+        <Welcome />
       </div>
     )
 }
