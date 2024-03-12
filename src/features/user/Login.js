@@ -81,8 +81,8 @@ function Login() {
       };
 
     return (
-        <div className="min-h-screen bg-gray-900 flex items-center">
-            <div className="card mx-auto w-full max-w-5xl  shadow-xl">
+        <div className="min-h-screen bg-pic flex items-center">
+            <div className="card mx-auto w-full max-w-5xl  shadow-xl opacity-90">
                 <div className="grid  md:grid-cols-2 grid-cols-1  bg-base-100 rounded-xl">
                     <div className=''>
                         <LandingIntro />
